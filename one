@@ -1,0 +1,120 @@
+User -> os -> machine
+OS use everywhere
+
+video MDR https://www.youtube.com/watch?v=NWfh_JaIh2A&ab_channel=GConfs
+
+First generation of program (1945-55)
+paper with holes and 0 and 1
+
+Second generation of program (1945-55)
+
+Troisième génération (1965-1980)
+Linux
+
+Quatrième génération 
+les PC que l'on connaît
+
+Mainframe OS (gros serveur)
+argent => KOBOL
+
+Personal Computer
+- app driven
+- multimedia (écran, image, cidéo, clavier)
+
+quand on ouvre le pc: 
+- chargement de l'os avec son système de fichiers
+
+Driver = chargement d'un code qui vq être envoyer sur le périphérique
+
+Dans l'OS:
+- kernel: fonctionnalitées, syscalls
+- services: logging
+- librairies: API
+- app: Moteur de recherche
+- support app:
+
+KERNEL
+Software run in privileged mode
+heart of the system
+no error allowed => no kernel panic
+first abstraction (basic resoruce managment)
+
+/dev/urandom => random numbers generated
+
+kernel land => view of memory from kernel mode
+
+root = a toutes les capabilities
+on peut enlever ses capabilities
+
+sytem call = api permettant de cherger du code sur le kernel s'accompagne d'une
+interruption logicielle
+Interruption: way to handle an events for CPU
+
+swap values (bitwise op are generally faster)
+a = a^b
+b = a^b
+a = a^b
+
+Program respect a file format => ELF
+kernel exposes syscalls
+
+program = static object with code
+process = program in execution
+context = address space, registers and other infos
+
+task = process, fork, thread (= cpode divisé en parallèle)
+task state = runing, ready, blocked
+scheduler = change task state
+
+process creation:
+pid_t fork(void)
+
+process hierarchy:
+- Unix/Linux = process lives in hierarchy
+- multiple groups (signals = number that can be executable that we can kill)
+
+ram découpée en page (emplacement mémoire)
+mmap => map 1 ou plusieur pages
+
+ram décupée en texte, data, stack
+
+VM = recoder du hardware
+container = isoler un processus dans un système de fichiers
+
+
+en shell 
+0 est VRAAII
+1 minor pbs
+2 Big pbs
+
+vitrification de fichiers = vérifier si y a pas des objets cachés dans un 
+fichier
+
+chroot: syscall/programme ou est mon est filesystem
+namespace: permet d'isoler des fichiers
+cgroups: limiter la RAM d'un process
+fs = code source
+
+proc = processus
+
+CONTAINER
+Pas de virtualization => on a juste télécharger un nouveau file system 
+que l'on définit comme root
+
+set_fs_root = racine du fs dans un chemin donné
+open.c
+
+
+echo "test" | tee test
+ecrit test et renvoie stdout dans test
+$$ your process
+
+
+/sys/fs/memory
+mkdir /sys/fs/cgroup/memory
+memory.limit_in_bytes = limit des octets
+memory.swappiness = octet utilisable du disque dur comme de la RAM
+cgroup.procs = les pid concernés
+swap = se servir du disque comme de la RAM
+valeur de mémoire limité
+
